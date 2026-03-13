@@ -3,25 +3,22 @@ trait AppendBar {
 }
 
 impl AppendBar for String {
-    fn append_bar(self) -> Self {
-        String::from(&self) + "Bar"
+    fn append_bar(mut self) -> Self {
+        self.push_str("Bar");
+        self
     }
 }
 
 impl AppendBar for Vec<String> {
+    // TODO: Implement the trait `AppendBar` for a vector of strings.
+    // `append_bar` should push the string "Bar" into the vector.
     fn append_bar(mut self) -> Self {
-        for s in self.iter_mut() {
-            String::from(s) + "Bar";
-        }
+        self.push(String::from("Bar"));
         self
     }
 }
-// TODO: Implement the trait `AppendBar` for a vector of strings.
-// `append_bar` should push the string "Bar" into the vector.
 
-fn main() {
-    // You can optionally experiment here.
-}
+fn main() {}
 
 #[cfg(test)]
 mod tests {
